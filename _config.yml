@@ -1,0 +1,12 @@
+# Site settings
+title: Jevi
+email: f37fanjiawei@163.com
+description: >
+  一些技术问题。
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://fanjiawei.github.io" # the base hostname & protocol for your site
+#twitter_username: @通宵十五
+github_username:  fanjiawei
+
+# Build settings
+markdown: kramdown

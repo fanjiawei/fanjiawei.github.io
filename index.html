@@ -1,1 +1,11 @@
-hello world
+---
+layout: default
+---
+
+{% for post in site.posts %}
+<h2><a href="{{post.url | prepend: site.baseurl}}">{{ post.title }}</a></h2>
+<p>{{ post.date | date: "%Y年%-m月%-d日" }}</p>
+<hr/>
+{% endfor %}
+<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
