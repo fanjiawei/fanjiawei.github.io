@@ -27,3 +27,27 @@ public Map<String,String> protectedResource(){
 private Map<String,String> protectedResource;
 {% endhighlight %}
 
+## 2.如何将抛出的异常显示为网页
+
+{% highlight java%}
+//在interceptor里抛出异常，controller同理
+public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    URL url = new URL(request.getRequestURL().toString());
+    String subDomain = url.getHost().split("\\.")[0];
+    if (groupDao.countBySubDomain(subDomain) > 0) {
+        request.setAttribute(Common.PARAM_SUB_DOMAIN, subDomain);
+        return true;
+    }
+
+    throw new GroupNotFoundException(subDomain);
+}
+
+//一个专门的类，用来处理所有的异常
+@ControllerAdvice
+public class ExceptionController {
+    @ExceptionHandler(GroupNotFoundException.class)
+    public String groupNotFound() {
+        return "exception/groupNotFound";
+    }
+}
+{% endhighlight %}
