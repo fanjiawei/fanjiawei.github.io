@@ -50,4 +50,24 @@ public class ExceptionController {
         return "exception/groupNotFound";
     }
 }
+{
+{% endhighlight %}
+
+## 3.定义action的参数为request的attribute
+{% highlight java %}
+@Controller 
+class MyController
+{
+    @ModelAttribute("user")
+    public User getUser(HttpServletRequest request) 
+    {
+        return (User) request.getAttribute("user");
+    }
+
+    @RequestMapping(value = "someurl", method = RequestMethod.GET)
+    public String HandleSomeUrl(@ModelAttribute("user") User user)  
+    {
+        // ... do some stuff
+    }
+}
 {% endhighlight %}
