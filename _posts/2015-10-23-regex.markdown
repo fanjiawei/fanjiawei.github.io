@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "青春永驻的秘诀！"
+title:  "正则表达式学习"
 date:   2015-08-01 18:07:37
-categories: 随笔
+categories: 正则表达式
 ---
 
 今天学到了正则表达式的“正预测先行”，这玩意太TM有用了。
