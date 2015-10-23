@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "青春永驻的秘诀！"
+date:   2015-08-01 18:07:37
+categories: 随笔
+---
+
+今天学到了正则表达式的“正预测先行”，这玩意太TM有用了。
+       
+## 怎么写？
+
+{% highlight java %}
+?=pattern    //正向肯定预查
+?<=pattern   //反向肯定预查
+?!pattern    //正向否定预查
+?<!pattern   //反向否定预查
+{% endhighlight %}
+
+## 啥东西？
+
+可以预先匹配pattern,如果匹配成功,那么在匹配后面的内容时会继续从开始的位置匹配。
+
+## 例子
+
+例如我想替换项目中所有的store.find("customer")中的customer为cutom,那么我就可以这么写    
+{% highlight java %}
+(?<=store.find.{0,5})customer
+{% endhighlight %}
+这样就能匹配所有的以store.find开头的customer,不管是在js还是coffee中都可以。
