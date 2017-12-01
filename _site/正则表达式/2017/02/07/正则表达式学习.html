@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|正则表达式学习</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">正则表达式学习</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-07 00:00:00 +0000" itemprop="datePublished">2017年02月07日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <p>今天学到了正则表达式的“正预测先行”，这玩意太TM有用了。</p>
+
+<h2 id="怎么写">怎么写？</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>?=pattern    //正向肯定预查
+?&lt;=pattern   //反向肯定预查
+?!pattern    //正向否定预查
+?&lt;!pattern   //反向否定预查
+</code></pre>
+</div>
+
+<h2 id="啥东西">啥东西？</h2>
+
+<p>可以预先匹配pattern,如果匹配成功,那么在匹配后面的内容时会继续从开始的位置匹配。</p>
+
+<h2 id="例子">例子</h2>
+
+<p>例如我想替换项目中所有的store.find(“customer”)中的customer为cutom,那么我就可以这么写</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>(?&lt;=store.find.{0,5})customer
+</code></pre>
+</div>
+
+<p>这样就能匹配所有的以store.find开头的customer,不管是在js还是coffee中都可以。</p>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

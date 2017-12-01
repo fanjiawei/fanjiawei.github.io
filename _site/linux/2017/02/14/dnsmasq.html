@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|mac使用dnsmasq搭建本地dns服务器</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">mac使用dnsmasq搭建本地dns服务器</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-14 00:00:00 +0000" itemprop="datePublished">2017年02月14日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <p>dnsmasq可以设置自己的上游dns服务器，如果dnsmasq找不到就会到上游服务器去找，
+找到以后就会缓存到本地，下次我们再请求相同地址的时候，就直接读取本地缓存的数据。</p>
+
+<!-- more -->
+
+<h3 id="1安装dnsmasq">1、安装dnsmasq</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>brew install dnsmasq
+</code></pre>
+</div>
+
+<h3 id="2复制配置文件">2、复制配置文件</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># 复制默认的配置文件
+cp $(brew list dnsmasq | grep /dnsmasq.conf.example$) /usr/local/etc/dnsmasq.conf
+# Copy the daemon configuration file into place.
+sudo cp $(brew list dnsmasq | grep /homebrew.mxcl.dnsmasq.plist$) /Library/LaunchDaemons/
+# 开机自启动
+sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+</code></pre>
+</div>
+
+<h3 id="3修改配置文件">3、修改配置文件</h3>
+
+<p>用编辑器打开/usr/local/etc/dnsmasq.conf</p>
+
+<p>加入一下配置</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>listen-address=127.0.0.1
+strict-order
+cache-size=32768
+//这里就是上游dns服务器，本地没有缓存就到下面的dns服务器上去找
+server=202.96.199.133
+server=202.106.45.151
+server=119.57.112.250
+</code></pre>
+</div>
+
+<h3 id="4重启dnsmasq">4、重启dnsmasq</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo launchctl stop homebrew.mxcl.dnsmasq
+sudo launchctl start homebrew.mxcl.dnsmasq
+</code></pre>
+</div>
+
+<h3 id="5配置mac">5、配置mac</h3>
+
+<p><img src="/images/dnsmasq.png" alt="dnsmasq" /></p>
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

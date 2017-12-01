@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|终端实用命令</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">终端实用命令</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-07 00:00:00 +0000" itemprop="datePublished">2017年02月07日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <h1 id="终端实用命令">终端实用命令</h1>
+<p><code class="highlighter-rouge">lsof -c mysqld</code>
+查看进程名称所有包含mysqld的进程使用中的文件</p>
+
+<hr />
+<p><code class="highlighter-rouge">cat filename | pbcopy</code>
+复制一个文件的内容到剪贴板</p>
+
+<!-- more -->
+
+<hr />
+<p><code class="highlighter-rouge">pbpaste &gt; ./filename.txt</code>
+粘贴剪贴板的内容到一个文件</p>
+
+<hr />
+<p><code class="highlighter-rouge">python -m SimpleHTTPServer 8000</code>
+启动一个简易的web server,用于测试网页</p>
+
+<hr />
+<p><code class="highlighter-rouge">du -hd 1</code>
+查看目录下所有目录的大小</p>
+
+<hr />
+<p><code class="highlighter-rouge">sed</code>
+<a href="http://qifuguang.me/2015/09/21/sed%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">sed</a></p>
+
+<hr />
+<p><code class="highlighter-rouge">lsb_release -a</code>
+查看操作系统信息</p>
+
+<hr />
+<p><code class="highlighter-rouge">sudo -u [username] stat [file path]</code>
+查看某个用户对某个文件的权限</p>
+
+<hr />
+<p><code class="highlighter-rouge">usermod -a -G [username] [group name]</code>
+把一个用户加入到一个组</p>
+
+<hr />
+<p><code class="highlighter-rouge">chmod +x [file path]</code>
+是一个文件变成可被执行的shell脚步</p>
+
+<hr />
+<p><code class="highlighter-rouge">nohup [shell] &amp;</code>
+在后台运行一个shell</p>
+
+<hr />
+<p><code class="highlighter-rouge">env</code>
+查看所有的环境变量</p>
+
+<hr />
+<p><code class="highlighter-rouge">ls</code>
+列出目录里的文件和子目录
+-h 给人看的文件大小，1024会显示为1K
+-lu filename 查看文件的最后访问时间
+-lc filename 查看文件状态(权限，用户，用户组等)的最后修改时间
+-l filename 查看文件内容的最后修改时间
+-a 列出所有文件，包括隐藏文件和<code class="highlighter-rouge">.</code> <code class="highlighter-rouge">..</code>
+-lT 使用完整的时间查看最后修改时间</p>
+
+<hr />
+<p><code class="highlighter-rouge">iconv -f GBK -t UTF-8 源文件.txt &gt; 目标文件.txt</code>
+将文本文件的编码从GBK转换为UTF-8</p>
+
+<hr />
+<p><code class="highlighter-rouge">curl -i http://ip.cn</code>
+查看外网ip</p>
+
+<hr />
+<p><code class="highlighter-rouge">scp user@example.com:"'web/tmp/Master File 18 10 13.xls'" .</code>
+<code class="highlighter-rouge">scp user@example.com:"web/tmp/Master\ File\ 18\ 10\ 13.xls" .</code>
+<code class="highlighter-rouge">scp user@example.com:web/tmp/Master\\\ File\\\ 18\\\ 10\\\ 13.xls .</code>
+scp复制服务器上文件名称带空格的文件</p>
+
+<hr />
+<p><code class="highlighter-rouge">ls -1 | wc -l</code>
+查看当前目录里有多少文件</p>
+
+<hr />
+<p><code class="highlighter-rouge">who</code>
+查看谁在线</p>
+
+<hr />
+<p><code class="highlighter-rouge">chgrp [group name] [file/dir name]</code>
+修改文件或目录的用户组</p>
+
+<hr />
+<p><code class="highlighter-rouge">chown [user name]:[group name] [file/dir name]</code>
+修改文件或目录的所有者和用户组</p>
+
+<hr />
+<p><code class="highlighter-rouge">chmod 754 [file name]</code>
+修改文件的权限,读写执行各用一个数字表示，如下
+r:4,w:2,x:1
+7(4+2+1)代表可读，可写，可执行,6(4+2)代表可读，可写</p>
+
+<hr />
+<p><code class="highlighter-rouge">chmod [u|g|o|a][+|-|=][r|w|x] [file name]</code>
+chmod的另一种用法,u:所有者,g:用户组,o:其他人,a:全部
+参数可以是下面这样的
+u+rw:给拥有者新增读写权限
+g-w:给用户组删除读取权限
+o=rw:其他人设置为读写权限</p>
+
+<hr />
+<p><code class="highlighter-rouge">touch</code>
+修改文件的最后访问时间和最后修改时间，如果指定了-a则仅修改最后访问时间，如果指定了-m则仅修改最后修改时间
+<code class="highlighter-rouge">-t [[CC]YY]MMDDhhmm[.SS]</code>指定具体的时间
+-a 仅修改访问时间
+-m 仅修改文件的最后修改时间
+<code class="highlighter-rouge">-A [-][[hh]mm]SS</code> 在原来的时间基础上加或者减一个时间，<code class="highlighter-rouge">touch -A 10 filename</code>在原基础上加10秒，<code class="highlighter-rouge">touch -A -10 filename</code> 在原基础上减10秒</p>
+
+<hr />
+<p><code class="highlighter-rouge">stat</code>
+查看文件详细信息</p>
+
+<hr />
+<p><code class="highlighter-rouge">file filename</code>
+查看文件类型</p>
+
+<hr />
+<p><code class="highlighter-rouge">groupadd groupName</code>
+新增用户组</p>
+
+<hr />
+<p><code class="highlighter-rouge">useradd username</code>
+新增用户</p>
+
+<hr />
+<p><code class="highlighter-rouge">id username</code>
+查看帐号的属性</p>
+
+<hr />
+<p><code class="highlighter-rouge">bc</code>
+计算器</p>
+
+<hr />
+<p><code class="highlighter-rouge">curl http://www.baidu.com -v</code>
+请求www.baidu.com，并显示请求头和响应头</p>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

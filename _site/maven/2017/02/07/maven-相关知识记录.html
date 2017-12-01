@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|maven相关内容</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">maven相关内容</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-07 00:00:00 +0000" itemprop="datePublished">2017年02月07日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <h1 id="maven-相关知识记录">maven 相关知识记录</h1>
+
+<h3 id="靠谱镜像">靠谱镜像</h3>
+<p>中央仓库巨慢，常用的镜像repo2.maven.org/maven2也很慢，在网上搜了一圈找到一个靠谱的</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> &lt;mirror&gt;
+      &lt;id&gt;alimaven&lt;/id&gt;
+      &lt;name&gt;aliyun maven&lt;/name&gt;
+      &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;
+      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+    &lt;/mirror&gt;
+&lt;mirror&gt;
+</code></pre>
+</div>
+
+<h3 id="packagingexcludes和warsourceexcludes的区别"><code class="highlighter-rouge">packagingExcludes</code>和<code class="highlighter-rouge">warSourceExcludes</code>的区别</h3>
+
+<p>maven-war-plugin可以排除一些不想要的文件，配置如下</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;plugin&gt;
+     &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+     &lt;version&gt;2.3&lt;/version&gt;
+     &lt;configuration&gt;
+         &lt;packagingExcludes&gt;WEB-INF/test&lt;/packagingExcludes&gt;
+         &lt;warSourceExcludes&gt;WEB-INF/npm-debug.log,WEB-INF/package.json,WEB-INF/node_modules/,WEB-INF/webpack.config.js&lt;/warSourceExcludes&gt;
+     &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">packagingExcludes</code>是在复制webapp目录时要排除的文件。
+<code class="highlighter-rouge">warSourceExcludes</code>是在打包时要排除的文件。</p>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

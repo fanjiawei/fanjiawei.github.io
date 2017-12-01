@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|关于nginx的gzip</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">关于nginx的gzip</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-13 00:00:00 +0000" itemprop="datePublished">2017年02月13日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <p>gzip可以有效的压缩内容，提高网站的访问速度，nginx提供了gzip支持。</p>
+
+<p>nginx中与gzip有关的命令包括下面这些</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gzip
+gzip_buffers
+gzip_comp_level
+gzip_disable
+gzip_min_length
+gzip_http_version
+gzip_proxied
+gzip_types
+gzip_vary
+</code></pre>
+</div>
+
+<h4 id="gzip">gzip</h4>
+
+<p>设置gzip是否开启，可以是 <code class="highlighter-rouge">on</code> 或 <code class="highlighter-rouge">off</code>，默认是off。</p>
+
+<h4 id="gzip_buffers">gzip_buffers</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>设置缓存的数量和大小，可选值为 32 4k</td>
+      <td>16 8k。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="gzip_comp_level">gzip_comp_level</h4>
+
+<p>设置压缩比，从1到9，1是最低</p>
+
+<h4 id="gzip_disable">gzip_disable</h4>
+
+<p>根据User-Agent判断是否需要gzip，值是一个正则。</p>
+
+<h4 id="gzip_min_length">gzip_min_length</h4>
+
+<p>如果response的content-length小于这个值，则不压缩，默认值20。</p>
+
+<h4 id="gzip_http_version">gzip_http_version</h4>
+
+<p>1.0或者1.1</p>
+
+<h4 id="gzip_proxied">gzip_proxied</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>为代理的服务开启gzip服务，值为off</td>
+      <td>expired</td>
+      <td>no-cache</td>
+      <td>no-store</td>
+      <td>private</td>
+      <td>no_last_modified</td>
+      <td>no_etag</td>
+      <td>auth</td>
+      <td>any。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="gzip_types">gzip_types</h4>
+
+<p>根据MIME types判断是否压缩，默认值text/html</p>
+
+<h4 id="gzip_vary">gzip_vary</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>值为 on</td>
+      <td>off，如果是on，则会加一个响应头Vary:Accept-Encoding</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="例子">例子</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gzip  on;
+gzip_proxied any;
+gzip_types application/json text/css;
+</code></pre>
+</div>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

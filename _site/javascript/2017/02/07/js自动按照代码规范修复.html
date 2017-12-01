@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|javascript自动格式化js代码</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="javascript, jscs">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">javascript自动格式化js代码</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-07 00:00:00 +0000" itemprop="datePublished">2017年02月07日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <p>我之前写过一篇js自动加分号的文章，现在我有了更好的办法，那个方法弱爆了。
+今天的主角叫<a href="http://jscs.info/">jscs</a>.
+本文只做简单的介绍，更多内容请移步<a href="http://jscs.info/overview">jscs官方的文档</a>.</p>
+
+<!-- more -->
+
+<h2 id="安装">安装</h2>
+<p><code class="highlighter-rouge">npm install jscs -g</code></p>
+
+<h2 id="开始使用">开始使用</h2>
+<h3 id="1创建配置文件">1、创建配置文件</h3>
+<p>在你的个人目录新建.jscsrc文件,然后写入下面内容。</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"preset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jquery"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"requireCurlyBraces"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>preset配置的就是js按照何种代码风格修复，上面例子中将按照jquery推荐的代码风格修复你的代码。
+目前的preset配置项有以下这些：</p>
+
+<ul>
+  <li>Airbnb — https://github.com/airbnb/javascript</li>
+  <li>Crockford — http://javascript.crockford.com/code.html</li>
+  <li>Google — https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml</li>
+  <li>Grunt — http://gruntjs.com/contributing#syntax</li>
+  <li>Idiomatic — https://github.com/rwaldron/idiomatic.js#idiomatic-style-manifesto</li>
+  <li>jQuery — https://contribute.jquery.org/style-guide/js/</li>
+  <li>MDCS — https://github.com/mrdoob/three.js/wiki/Mr.doob’s-Code-Style™</li>
+  <li>node-style-guide- https://github.com/felixge/node-style-guide</li>
+  <li>Wikimedia — https://www.mediawiki.org/wiki/Manual:Coding_conventions/JavaScript</li>
+  <li>WordPress — https://make.wordpress.org/core/handbook/coding-standards/javascript/</li>
+</ul>
+
+<h3 id="2开始修复">2、开始修复</h3>
+<p><code class="highlighter-rouge">jscs ~/project/**/*.js</code>
+这条命令会打印项目里所有js的不符合规范的地方。</p>
+
+<p><code class="highlighter-rouge">jscs ~/project/**/*.js -x</code>
+这条命令会修复所有不符合规范的地方，并把无法自动修复的地方打印出来。</p>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

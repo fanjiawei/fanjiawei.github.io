@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|单页应用的nginx配置</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">单页应用的nginx配置</h1>
+        <p class="post-meta">
+            <time datetime="2016-12-31 16:00:00 +0000" itemprop="datePublished">2016年12月31日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <h1 id="单页应用的nginx配置">单页应用的nginx配置</h1>
+
+<!-- more -->
+<p>weather.zoumeizou.com返回前端页面，  <br />
+weather.zoumeizou.com/api是接口地址。</p>
+
+<p>nginx配置如下</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>server {
+    listen       80;
+    server_name  weather.zoumeizou.com;
+    
+    location /api {
+        proxy_pass http://localhost:8080/weather/api;
+        proxy_set_header Host $http_host;
+    }
+    
+    location / {
+        rewrite ^ /index.html break;
+        root   /usr/share/nginx/weather;
+        index  index.html index.htm;
+    }
+    
+    location /static_common {
+        rewrite ^/static_common/(.*)$ /commmon/$1 break;
+        root /usr/share/nginx/xxx;
+        index index.html index.htm;
+    }
+}
+</code></pre>
+</div>
+<p>说明
+将uri里的部分修改为新的值
+如例子中所示，将/static_common修改为/common</p>
+
+<p>rewrite使用 <br />
+作用：重写url实现页面跳转，可以做到前端url地址不变跳转和返回302，301状态码跳转。  <br />
+用法：rewrite (访问路径规则) (修改后的url) flag;</p>
+
+<p>flag的值</p>
+<ol>
+  <li>last 相当于Apache里的[L]标记，表示完成rewrite</li>
+  <li>break 终止匹配, 不再匹配后面的规则</li>
+  <li>redirect 返回302临时重定向 地址栏会显示跳转后的地址</li>
+  <li>permanent 返回301永久重定向 地址栏会显示跳转后的地址</li>
+</ol>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

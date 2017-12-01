@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|git配置文件</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="git, git配置">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">git配置文件</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-07 00:00:00 +0000" itemprop="datePublished">2017年02月07日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <h3 id="查看配置">查看配置</h3>
+
+<p><code class="highlighter-rouge">git config -l</code>查看当前的所有配置
+<code class="highlighter-rouge">git config --global -l</code>查看全局配置
+<code class="highlighter-rouge">git config --local -l</code>查看项目配置</p>
+
+<h3 id="修改配置">修改配置</h3>
+<h5 id="通过配置文件">通过配置文件</h5>
+<p><code class="highlighter-rouge">git config --global -e</code>修改全局git配置
+<code class="highlighter-rouge">git config --local -e</code>修改项目git配置</p>
+
+<h5 id="通过命令行">通过命令行</h5>
+<p><code class="highlighter-rouge">git config --local user.name "xiaoming"</code>给项目配置设置user.name属性
+<code class="highlighter-rouge">git config --local --unset user.name</code>删除项目配置的user.name属性</p>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

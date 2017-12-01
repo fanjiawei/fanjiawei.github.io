@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|MySQL(5.7)数据类型</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">MySQL(5.7)数据类型</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-07 00:00:00 +0000" itemprop="datePublished">2017年02月07日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <h1 id="mysql57数据类型">MySQL(5.7)数据类型</h1>
+
+<h3 id="text类型">TEXT类型</h3>
+
+<p>下表是所有Text类型，及其最大存储空间</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>type</th>
+      <th>最大存储空间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TINYBLOB, TINYTEXT</td>
+      <td>2^8 -1,255Bytes</td>
+    </tr>
+    <tr>
+      <td>BLOB, TEXT</td>
+      <td>2^16 -1</td>
+    </tr>
+    <tr>
+      <td>MEDIUMBLOB, MEDIUMTEXT</td>
+      <td>2^24 -1</td>
+    </tr>
+    <tr>
+      <td>LONGBLOB, LONGTEXT</td>
+      <td>2^32 -1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>根据charset的不同，所能存储的文字数量也不同
+下表是不同charset所消耗的空间</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Character Set</th>
+      <th>Supported Characters</th>
+      <th>每个字符所需空间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>utf8</td>
+      <td>BMP only</td>
+      <td>1, 2, or 3 bytes</td>
+    </tr>
+    <tr>
+      <td>ucs2</td>
+      <td>BMP only</td>
+      <td>2 bytes</td>
+    </tr>
+    <tr>
+      <td>utf8mb4</td>
+      <td>BMP and supplementary</td>
+      <td>1, 2, 3, or 4 bytes</td>
+    </tr>
+    <tr>
+      <td>utf16</td>
+      <td>BMP and supplementary</td>
+      <td>2 or 4 bytes</td>
+    </tr>
+    <tr>
+      <td>utf16le</td>
+      <td>BMP and supplementary</td>
+      <td>2 or 4 bytes</td>
+    </tr>
+    <tr>
+      <td>utf32</td>
+      <td>BMP and supplementary</td>
+      <td>4 bytes</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

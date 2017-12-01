@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|电话号码相关知识</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">电话号码相关知识</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-07 00:00:00 +0000" itemprop="datePublished">2017年02月07日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <h1 id="电话号相关知识">电话号相关知识</h1>
+
+<!-- more -->
+<h3 id="电话类型">电话类型</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>代号</th>
+      <th>意思</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FIXED_LINE</td>
+      <td>固话</td>
+    </tr>
+    <tr>
+      <td>MOBILE</td>
+      <td>手机</td>
+    </tr>
+    <tr>
+      <td>FIXED_LINE_OR_MOBILE</td>
+      <td>固话或者手机</td>
+    </tr>
+    <tr>
+      <td>TOLL_FREE</td>
+      <td>800电话，被叫付费</td>
+    </tr>
+    <tr>
+      <td>PREMIUM_RATE</td>
+      <td>+979 International Premium Rate Service 国际额外费率业务</td>
+    </tr>
+    <tr>
+      <td>SHARED_COST</td>
+      <td>400电话，被叫与主叫分摊费用</td>
+    </tr>
+    <tr>
+      <td>VOIP</td>
+      <td>网际协议通话技术</td>
+    </tr>
+    <tr>
+      <td>PERSONAL_NUMBER</td>
+      <td>瑞典身份证号</td>
+    </tr>
+    <tr>
+      <td>PAGER</td>
+      <td>寻呼机</td>
+    </tr>
+    <tr>
+      <td>UAN</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>VOICEMAIL</td>
+      <td>语音邮箱</td>
+    </tr>
+    <tr>
+      <td>UNKNOWN</td>
+      <td>未知</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="电话资料网址">电话资料网址</h3>
+<p>https://zh.wikipedia.org/wiki/Category:%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E5%88%86%E7%B1%BB</p>
+
+<p>https://en.wikipedia.org/wiki/Category:Telephone_numbers</p>
+
+<p>https://countrycode.org/southkorea</p>
+
+<h3 id="正确的电话格式方式">正确的电话格式方式</h3>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//按照E164方式格式化</span>
+<span class="nx">currectPhoneNumber</span> <span class="o">=</span> <span class="nx">phoneUtil</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">phoneNumber</span><span class="p">,</span> <span class="nx">libphonenumber</span><span class="p">.</span><span class="nx">PhoneNumberFormat</span><span class="p">.</span><span class="nx">E164</span><span class="p">);</span>
+<span class="nx">currectPhoneNumber</span> <span class="o">=</span> <span class="nx">currectPhoneNumber</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/ +/g</span><span class="p">,</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nx">currectPhoneNumber</span> <span class="o">=</span> <span class="nx">currectPhoneNumber</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\+</span><span class="sr">/g</span><span class="p">,</span> <span class="s1">'00'</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h3 id="在家中猫里找到的电话格式">在家中猫里找到的电话格式</h3>
+<p><code class="highlighter-rouge">110|119|120|122|01[34578]xxxxxxxxx|1[3458]xxxxxxxxx|17[0678]xxxxxxxx|5[1-36-9]xxxxxx|6[1-9]xxxxxx|60[1-9]xxxxx|8[1-9]xxxxxx|80[1-9]xxxxx|800[68]xxxxxx|[*#][*#0-9][0-9*].#|[*#][*#0-9][0-9*].S|##|**xx|x.S|x.#</code></p>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

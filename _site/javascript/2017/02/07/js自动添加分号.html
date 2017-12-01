@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|js自动添加分号</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="js, fixmyjs">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">js自动添加分号</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-07 00:00:00 +0000" itemprop="datePublished">2017年02月07日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <p>团队协作，有些人没有加分号的习惯，久而久之，会有大量的文件具有此类问题，然后找到一个工具叫fixmyjs，可以自动给js加分号。但是加完别忘检查一下，有些不应该加的他也加了。</p>
+
+<!-- more -->
+
+<h2 id="安装fixmyjs">安装fixmyjs</h2>
+<p><code class="highlighter-rouge">npm install fixmyjs -g</code></p>
+
+<h2 id="创建fixmyjs-config文件">创建fixmyjs-config文件</h2>
+<p>一定要创建在项目目录下，在里面加入下面内容
+<code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"asi"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code></p>
+
+<h2 id="执行命令">执行命令</h2>
+<p><code class="highlighter-rouge">fixmyjs --config fixmyjs-config --legacy app/**/*.js</code>
+如果在执行过程中遇到“Too many errors reported by JSHint.”的异常，
+那么在异常的js文件第一行加注释<code class="highlighter-rouge">/*jshint maxerr: 10000 */</code></p>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|如何通过maven往tomcat部署war包</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">如何通过maven往tomcat部署war包</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-07 00:00:00 +0000" itemprop="datePublished">2017年02月07日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <h1 id="maven-tomcat插件远程部署方法">Maven tomcat插件远程部署方法</h1>
+
+<p>tomcat的manager提供了可以部署项目的接口，可以使用maven的tomcat插件通过一个命令方便的进行部署、重新部署等操作。</p>
+
+<h2 id="修改m2settingxml">修改~/.m2/setting.xml</h2>
+
+<p>新增一个<code class="highlighter-rouge">&lt;server&gt;</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;server&gt;
+  &lt;id&gt;tomcat8&lt;/id&gt;
+  &lt;username&gt;tomcat&lt;/username&gt;
+  &lt;password&gt;tomcat&lt;/password&gt;
+&lt;/server&gt;
+</code></pre>
+</div>
+
+<h2 id="加入tomcat插件">加入tomcat插件</h2>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- 加到pom.xml中 --&gt;</span>
+<span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+        <span class="nt">&lt;plugin&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.tomcat.maven<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>tomcat7-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.2<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                <span class="nt">&lt;url&gt;</span>http://localhost:8080/manager/text<span class="nt">&lt;/url&gt;</span>
+                <span class="nt">&lt;server&gt;</span>tomcat8<span class="nt">&lt;/server&gt;</span>
+                <span class="c">&lt;!-- 这里是项目的context path --&gt;</span>
+                <span class="nt">&lt;path&gt;</span>/<span class="nt">&lt;/path&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+        <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="使用方法">使用方法</h2>
+
+<p>先启动tomcat,并确定manager页面可用并且可成功登陆</p>
+
+<h2 id="部署到tomcat">部署到tomcat</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mvn tomcat7:deploy
+mvn tomcat7:deploy-only
+</code></pre>
+</div>
+
+<h2 id="重新部署">重新部署</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mvn tomcat7:redeploy
+mvn tomcat7:redeploy-only
+</code></pre>
+</div>
+
+<h2 id="取消部署">取消部署</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mvn tomcat7:undeploy
+</code></pre>
+</div>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

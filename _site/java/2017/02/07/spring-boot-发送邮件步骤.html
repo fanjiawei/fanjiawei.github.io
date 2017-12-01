@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|spring boot 发送邮件步骤</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">spring boot 发送邮件步骤</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-07 00:00:00 +0000" itemprop="datePublished">2017年02月07日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <h1 id="spring-boot-发送邮件步骤">spring boot 发送邮件步骤</h1>
+<blockquote>
+  <p>以下内容基于spring boot默认配置</p>
+</blockquote>
+
+<h3 id="step-1">step 1</h3>
+
+<p>maven导入需要用到的包.</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- javamail --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+     <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+     <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-mail<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="c">&lt;!-- 模板引擎 --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+     <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+     <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-thymeleaf<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="step-2">step 2</h3>
+
+<p>注册Bean</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="nd">@Bean</span>
+<span class="kd">public</span> <span class="n">JavaMailSender</span> <span class="nf">mailSender</span><span class="o">()</span> <span class="o">{</span>
+   <span class="n">JavaMailSenderImpl</span> <span class="n">mailSender</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JavaMailSenderImpl</span><span class="o">();</span>
+   <span class="n">mailSender</span><span class="o">.</span><span class="na">setDefaultEncoding</span><span class="o">(</span><span class="s">"utf-8"</span><span class="o">);</span>
+   <span class="n">mailSender</span><span class="o">.</span><span class="na">setHost</span><span class="o">(</span><span class="s">"smtp.qq.com"</span><span class="o">);</span>
+   <span class="n">mailSender</span><span class="o">.</span><span class="na">setUsername</span><span class="o">(</span><span class="s">"619588019@qq.com"</span><span class="o">);</span>
+   <span class="n">mailSender</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">"********"</span><span class="o">);</span><span class="c1">//这里要写真实密码</span>
+   <span class="n">mailSender</span><span class="o">.</span><span class="na">setProtocol</span><span class="o">(</span><span class="s">"smtps"</span><span class="o">);</span>
+   <span class="n">Properties</span> <span class="n">props</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">();</span>
+   <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"mail.smtps.auth"</span><span class="o">,</span> <span class="s">"true"</span><span class="o">);</span>
+   <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"mail.smtp.ssl.enable"</span><span class="o">,</span> <span class="s">"true"</span><span class="o">);</span>
+   <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"mail.transport.protocol"</span><span class="o">,</span> <span class="s">"smtps"</span><span class="o">);</span>
+
+   <span class="n">mailSender</span><span class="o">.</span><span class="na">setJavaMailProperties</span><span class="o">(</span><span class="n">props</span><span class="o">);</span>
+   <span class="k">return</span> <span class="n">mailSender</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h3 id="step-3">step 3</h3>
+
+<p>创建email模板文件，
+在resorces/templates下创建emailTemplate.html</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"zh"</span> <span class="na">xmlns:th=</span><span class="s">"http://www.thymeleaf.org"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Title<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+您好,这是验证邮件,请点击下面的链接完成验证,<span class="nt">&lt;br/&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">th:href=</span><span class="s">"@{ http://www.smiple.com/yanzhen/{id}(id=${id}) }"</span><span class="nt">&gt;</span>激活账号<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="step-4">step 4</h3>
+
+<p>假设我们要在controller里面某个action中发送邮件</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="nd">@Autowired</span>
+<span class="kd">private</span> <span class="n">JavaMailSender</span> <span class="n">mailSender</span><span class="o">;</span>
+
+<span class="nd">@Autowired</span>
+<span class="kd">private</span> <span class="n">TemplateEngine</span> <span class="n">templateEngine</span><span class="o">;</span>
+
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">"/sendEmail"</span><span class="o">)</span>
+<span class="nd">@ResponseBody</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">test</span><span class="o">(){</span>
+
+   <span class="c1">//创建邮件正文</span>
+   <span class="n">Context</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Context</span><span class="o">();</span>
+   <span class="n">context</span><span class="o">.</span><span class="na">setVariable</span><span class="o">(</span><span class="s">"id"</span><span class="o">,</span> <span class="s">"1"</span><span class="o">);</span>
+   <span class="n">String</span> <span class="n">emailContent</span> <span class="o">=</span> <span class="n">templateEngine</span><span class="o">.</span><span class="na">process</span><span class="o">(</span><span class="s">"emailTemplate"</span><span class="o">,</span> <span class="n">context</span><span class="o">);</span>
+   
+   <span class="c1">//创建一个线程发送邮件</span>
+   <span class="k">new</span> <span class="nf">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+       <span class="n">MimeMessage</span> <span class="n">mimeMessage</span> <span class="o">=</span> <span class="n">mailSender</span><span class="o">.</span><span class="na">createMimeMessage</span><span class="o">();</span>
+       <span class="n">MimeMessageHelper</span> <span class="n">mimeMessageHelper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MimeMessageHelper</span><span class="o">(</span><span class="n">mimeMessage</span><span class="o">,</span> <span class="s">"utf-8"</span><span class="o">);</span>
+       
+       <span class="k">try</span> <span class="o">{</span>
+       
+           <span class="c1">//此处from必须与步骤2的username一致</span>
+           <span class="n">mimeMessageHelper</span><span class="o">.</span><span class="na">setFrom</span><span class="o">(</span><span class="s">"某某网 &lt;619588019@qq.com&gt;"</span><span class="o">);</span>
+           <span class="n">mimeMessageHelper</span><span class="o">.</span><span class="na">setTo</span><span class="o">(</span><span class="s">"test@126.com"</span><span class="o">);</span>
+           <span class="n">mimeMessageHelper</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">emailContent</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+           <span class="n">mailSender</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">mimeMessage</span><span class="o">);</span>
+       <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+           <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+       <span class="o">}</span>
+   <span class="o">}).</span><span class="na">start</span><span class="o">();</span>
+   
+   <span class="k">return</span> <span class="s">"邮件已发送"</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

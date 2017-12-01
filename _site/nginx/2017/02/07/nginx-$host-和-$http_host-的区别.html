@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|nginx `$host` 和 `$http_host` 的区别</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">nginx `$host` 和 `$http_host` 的区别</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-07 00:00:00 +0000" itemprop="datePublished">2017年02月07日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <h1 id="nginx-host-和-http_host-的区别">nginx <code class="highlighter-rouge">$host</code> 和 <code class="highlighter-rouge">$http_host</code> 的区别</h1>
+
+<p><code class="highlighter-rouge">$host</code>是<a href="http://nginx.org/en/docs/http/ngx_http_core_module.html">core</a>模块内部的一个变量</p>
+
+<ol>
+  <li>当请求头里不存在<code class="highlighter-rouge">Host</code>属性或者是个空值，<code class="highlighter-rouge">$host</code>则等于server_name</li>
+  <li>如果请求头里有<code class="highlighter-rouge">Host</code>属性，那么<code class="highlighter-rouge">$host</code>等于<code class="highlighter-rouge">Host</code>属性除了端口号的部分，例如<code class="highlighter-rouge">Host</code>属性是<code class="highlighter-rouge">www.example.com</code>，那么<code class="highlighter-rouge">$host</code>就是<code class="highlighter-rouge">www.example.com</code></li>
+</ol>
+
+<p><code class="highlighter-rouge">$http_host</code>也是core模块内部的变量，<code class="highlighter-rouge">$http_HEADER</code>，其中HEADER可以是请求头里的任意属性，
+例如<code class="highlighter-rouge">$http_user_agent</code>,<code class="highlighter-rouge">$http_referer</code></p>
+
+<p>所以<code class="highlighter-rouge">$http_host</code>总是等于请求头里的<code class="highlighter-rouge">Host</code>属性</p>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

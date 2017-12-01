@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Jevi|Spring-boot不同环境使用不同配置</title>
+    <meta name="description" content="Jevi的博客，Jevi是一个程序员，会写前端，也会写java后端.
+">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<aside>
+    <div>
+        <header>
+            <img src="/images/psb.jpeg" alt="img"/>
+            <h1>Jevi</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">文章</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/doc.html">文档</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Spring-boot不同环境使用不同配置</h1>
+        <p class="post-meta">
+            <time datetime="2017-02-07 00:00:00 +0000" itemprop="datePublished">2017年02月07日</time>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <h1 id="spring-boot不同环境使用不同配置">Spring-boot不同环境使用不同配置</h1>
+
+<p>spring-boot会在classpath中查找名为<code class="highlighter-rouge">application-{profile}.properties</code>的配置文件，<code class="highlighter-rouge">application-default.properties</code>始终加载，如果使用了profile，那么相同配置将会覆盖<code class="highlighter-rouge">application-default.properties</code>中的值，通过指定<code class="highlighter-rouge">spring.profiles.active</code>属性可以让spring加载指定的配置文件。</p>
+
+<p>假设我们有一个项目proj，将会部署到tomcat/webapps下，context path是<code class="highlighter-rouge">proj</code>，那么部署完以后，webapps下将会有个proj目录。</p>
+
+<h2 id="步骤一">步骤一</h2>
+<p>在resources目录中新建<code class="highlighter-rouge">application-defaut.properties</code> <code class="highlighter-rouge">application-dev.properties</code> <code class="highlighter-rouge">application-prod.properties</code></p>
+
+<h2 id="步骤二">步骤二</h2>
+<p>在tomcat/conf/Catalina/local（没有则创建一个）目录下创建<code class="highlighter-rouge">ROOT.xml</code>，写入一下内容</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;Context</span> <span class="nt">&gt;</span>
+    <span class="c">&lt;!-- 这里可以修改value为prod，使spring使用application-prod.properties配置，这里使用的是application-dev.properties --&gt;</span>
+    <span class="nt">&lt;Environment</span> <span class="na">name=</span><span class="s">"spring.profiles.active"</span> <span class="na">value=</span><span class="s">"dev"</span>
+         <span class="na">type=</span><span class="s">"java.lang.String"</span> <span class="na">override=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Context&gt;</span>
+
+</code></pre>
+</div>
+
+
+    </div>
+
+
+</article>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
