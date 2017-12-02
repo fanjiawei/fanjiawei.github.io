@@ -4,7 +4,6 @@ layout: post
 excerpt: 记录工作中用到的命令
 categories: linux
 ---
-# 终端实用命令
 `lsof -c mysqld`
 查看进程名称所有包含mysqld的进程使用中的文件
 
