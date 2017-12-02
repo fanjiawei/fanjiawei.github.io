@@ -5,8 +5,6 @@ excerpt: 某天突然心血来潮，想知道mysql的text类型究竟能存几�
 categories: database
 ---
 
-# MySQL(5.7)数据类型
-
 ### TEXT类型
 
 下表是所有Text类型，及其最大存储空间

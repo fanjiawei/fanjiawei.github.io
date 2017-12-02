@@ -11,8 +11,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="/css/normalize.css" rel="stylesheet" type="text/css">
     <link href="/css/default.css" rel="stylesheet" type="text/css">
-    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/github.css" rel="stylesheet" type="text/css">
     <link href="/css/baidu-cse-default.css" rel="stylesheet" type="text/css">
+    <link href="/css/github-markdown.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@
     </nav>
 </aside>
 <main class="content">
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <article class="post markdown-body" itemscope itemtype="http://schema.org/BlogPosting">
 
     <header class="post-header">
         <h1 class="post-title" itemprop="name headline">终端快捷键</h1>
@@ -46,28 +47,94 @@
     </header>
 
     <div class="post-content" itemprop="articleBody">
-        <h1 id="终端快捷键">终端快捷键</h1>
+        <table>
+  <thead>
+    <tr>
+      <th style="text-align: center">快捷键</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Ctrl + d</td>
+      <td>删除一个字符，相当于通常的Delete键（命令行若无所有字符，则相当于exit；处理多行标准输入时也表示eof）</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + h</td>
+      <td>退格删除一个字符，相当于通常的Backspace键</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + u</td>
+      <td>删除光标之前到行首的字符</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + k</td>
+      <td>删除光标之前到行尾的字符</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + c</td>
+      <td>取消当前行输入的命令，相当于Ctrl + Break</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + a</td>
+      <td>光标移动到行首（Ahead of line），相当于通常的Home键</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + e</td>
+      <td>光标移动到行尾（End of line）</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + f</td>
+      <td>光标向前(Forward)移动一个字符位置</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + b</td>
+      <td>光标往回(Backward)移动一个字符位置</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + l</td>
+      <td>清屏，相当于执行clear命令</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + p</td>
+      <td>调出命令历史中的前一条（Previous）命令，相当于通常的上箭头</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + n</td>
+      <td>调出命令历史中的下一条（Next）命令，相当于通常的上箭头</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + r</td>
+      <td>显示：号提示，根据用户输入查找相关历史命令（reverse-i-search）</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Alt + f</td>
+      <td>光标向前（Forward）移动到下一个单词</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Alt + b</td>
+      <td>光标往回（Backward）移动到前一个单词</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + w</td>
+      <td>删除从光标位置前到当前所处单词（Word）的开头</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Alt + d</td>
+      <td>删除从光标位置到当前所处单词的末尾</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ctrl + y</td>
+      <td>粘贴最后一次被删除的单词</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Ctrl + d 删除一个字符，相当于通常的Delete键（命令行若无所有字符，则相当于exit；处理多行标准输入时也表示eof）
-Ctrl + h 退格删除一个字符，相当于通常的Backspace键
-Ctrl + u 删除光标之前到行首的字符
-Ctrl + k 删除光标之前到行尾的字符</p>
-
-<p>Ctrl + c 取消当前行输入的命令，相当于Ctrl + Break
-Ctrl + a 光标移动到行首（Ahead of line），相当于通常的Home键
-Ctrl + e 光标移动到行尾（End of line）
-Ctrl + f 光标向前(Forward)移动一个字符位置
-Ctrl + b 光标往回(Backward)移动一个字符位置
-Ctrl + l 清屏，相当于执行clear命令
-Ctrl + p 调出命令历史中的前一条（Previous）命令，相当于通常的上箭头
-Ctrl + n 调出命令历史中的下一条（Next）命令，相当于通常的上箭头
-Ctrl + r 显示：号提示，根据用户输入查找相关历史命令（reverse-i-search）&lt;/p&gt; &lt;p&gt;</p>
-
-<p>Alt + f 光标向前（Forward）移动到下一个单词
-Alt + b 光标往回（Backward）移动到前一个单词
-Ctrl + w 删除从光标位置前到当前所处单词（Word）的开头
-Alt + d 删除从光标位置到当前所处单词的末尾
-Ctrl + y 粘贴最后一次被删除的单词</p>
+<style>
+table th:nth-of-type(1){
+   width:100px;
+}
+</style>
 
 
     </div>
@@ -88,9 +155,67 @@ Ctrl + y 粘贴最后一次被删除的单词</p>
             s.parentNode.insertBefore(bdcs, s);
         })();</script>
     </div>
+    <div class="tag-cloud">
+        <h2>标签</h2>
+        
+        
+        <a href="/tags/json/" rel="1">
+            JSON (1)
+        </a>
+        
+        <a href="/tags/centos/" rel="1">
+            centos (1)
+        </a>
+        
+        <a href="/tags/fixmyjs/" rel="1">
+            fixmyjs (1)
+        </a>
+        
+        <a href="/tags/git/" rel="2">
+            git (2)
+        </a>
+        
+        <a href="/tags/git命令/" rel="1">
+            git命令 (1)
+        </a>
+        
+        <a href="/tags/git配置/" rel="1">
+            git配置 (1)
+        </a>
+        
+        <a href="/tags/javascript/" rel="1">
+            javascript (1)
+        </a>
+        
+        <a href="/tags/js/" rel="1">
+            js (1)
+        </a>
+        
+        <a href="/tags/jscs/" rel="1">
+            jscs (1)
+        </a>
+        
+        <a href="/tags/nginx/" rel="1">
+            nginx (1)
+        </a>
+        
+    </div>
 </aside>
 <script src="/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script src="//libs.cdnjs.net/jquery/1.12.4/jquery.min.js"></script>
+<script src="/js/jquery.tagcloud.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+
+    $.fn.tagcloud.defaults = {
+        size: {start: 14, end: 32, unit: "pt"},
+        color: {start: "#31eed8", end: "#c032ff"}
+    };
+
+    $(function() {
+        $(".tag-cloud a").tagcloud();
+    });
+</script>
 </body>
 
 </html>

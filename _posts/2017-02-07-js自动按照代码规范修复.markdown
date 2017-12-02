@@ -2,7 +2,7 @@
 layout: post
 title: javascript自动格式化js代码
 categories: javascript
-tags: ["javascript","jscs"]
+tags: javascript jscs
 ---
 
 我之前写过一篇js自动加分号的文章，现在我有了更好的办法，那个方法弱爆了。

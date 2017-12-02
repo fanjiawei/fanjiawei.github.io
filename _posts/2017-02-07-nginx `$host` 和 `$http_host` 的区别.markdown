@@ -5,7 +5,6 @@ categories: nginx
 excerpt: 配nginx的时候，我们都碰到过这个参数`proxy_set_header Host`，对于这个参数的值网上一般有两种，$host和$http_host，这两个值究竟有啥区别呢？
 ---
 
-# nginx `$host` 和 `$http_host` 的区别
 
 `$host`是[core](http://nginx.org/en/docs/http/ngx_http_core_module.html)模块内部的一个变量
 

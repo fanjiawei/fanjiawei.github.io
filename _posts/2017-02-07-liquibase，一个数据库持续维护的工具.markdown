@@ -4,7 +4,6 @@ title: 'liquibase，一个数据库持续维护的工具'
 excerpt: liquibase(读音：李逵贝斯)是一个可以对数据库持续维护的工具，可以用命令行、ant、maven、Spring、servlet listener和CDI容器执行维护的操作，本文仅简单记录maven使用liquibase的过程。
 categories: database
 ---
-# liquibase，一个数据库持续维护的工具
 
 [官网](http://www.liquibase.org/index.html)
 

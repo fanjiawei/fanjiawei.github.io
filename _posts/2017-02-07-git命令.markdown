@@ -2,7 +2,7 @@
 title: git命令
 layout: post
 categories: git
-tags: ['git','git命令']
+tags: git git命令
 excerpt: 记录我在工作中学到的git命令，随时补充
 ---
 

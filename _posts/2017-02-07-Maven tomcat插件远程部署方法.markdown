@@ -4,7 +4,6 @@ title: '如何通过maven往tomcat部署war包'
 categories: maven
 excerpt: 一般的我们往tomcat上部署war包都是登录tomcat管理页面，在管理页面上传war包，然后tomcat完成部署。现在我们只需要一条命令就能解决这个问题！
 ---
-# Maven tomcat插件远程部署方法
 
 tomcat的manager提供了可以部署项目的接口，可以使用maven的tomcat插件通过一个命令方便的进行部署、重新部署等操作。
 

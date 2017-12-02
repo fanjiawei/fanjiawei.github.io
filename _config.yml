@@ -36,3 +36,6 @@ paginate: 5
 paginate_path: "page:num"
 excerpt_separator: "<!-- more -->"
 timezone: CN
+
+tag_page_layout: tag
+tag_page_dir: tags

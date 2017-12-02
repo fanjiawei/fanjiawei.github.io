@@ -10,8 +10,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="/css/normalize.css" rel="stylesheet" type="text/css">
     <link href="/css/default.css" rel="stylesheet" type="text/css">
-    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/github.css" rel="stylesheet" type="text/css">
     <link href="/css/baidu-cse-default.css" rel="stylesheet" type="text/css">
+    <link href="/css/github-markdown.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -50,9 +51,31 @@
             s.parentNode.insertBefore(bdcs, s);
         })();</script>
     </div>
+    <div class="tag-cloud">
+        <h2>标签</h2>
+        {% assign tags = site.tags | sort %}
+        {% for tag in tags %}
+        <a href="/{{ site.tag_page_dir }}/{{ tag | first | slugify }}/" rel="{{ tag | last | size }}">
+            {{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})
+        </a>
+        {% endfor %}
+    </div>
 </aside>
 <script src="/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script src="//libs.cdnjs.net/jquery/1.12.4/jquery.min.js"></script>
+<script src="/js/jquery.tagcloud.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+
+    $.fn.tagcloud.defaults = {
+        size: {start: 14, end: 32, unit: "pt"},
+        color: {start: "#31eed8", end: "#c032ff"}
+    };
+
+    $(function() {
+        $(".tag-cloud a").tagcloud();
+    });
+</script>
 </body>
 
 </html>

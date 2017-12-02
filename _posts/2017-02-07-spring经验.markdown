@@ -5,8 +5,6 @@ categories: java
 excerpt: 记录一些平时在开发中使用spring遇到的问题。
 ---
 
-spring经验
-====
 Spring可真是坑啊！
 
 <!-- more -->

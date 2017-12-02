@@ -3,11 +3,9 @@ layout: post
 title:  "centos7安装nginx步骤"
 date:   2017-02-07 10:25:55 +0800
 categories: nginx
-tags: [centos, nginx]
+tags: centos nginx
 excerpt: 记录centos7安装nginx的方法，方便下次做类似操作。
 ---
-
-# centos7安装nginx步骤
 
 [官方的安装文档](https://nginx.org/en/linux_packages.html#stable)
 

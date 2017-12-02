@@ -6,7 +6,7 @@ categories: centos
 excerpt: 简单记录了单页应用的nginx配置
 ---
 
-# 单页应用的nginx配置
+单页应用nginx配置
 
 <!-- more -->
 weather.zoumeizou.com返回前端页面，    

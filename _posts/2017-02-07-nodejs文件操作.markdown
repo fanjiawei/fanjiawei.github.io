@@ -4,7 +4,6 @@ title: nodejs文件操作
 categories: nodejs
 excerpt: nodejs文件操作
 ---
-# nodejs文件操作
 
 获取文件操作对象`const fs from 'fs'`
 

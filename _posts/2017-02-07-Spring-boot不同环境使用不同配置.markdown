@@ -4,7 +4,6 @@ title: "Spring-boot不同环境使用不同配置"
 categories: java
 excerpt: 在开发中，开发环境与产品环境可能略有不同，使用spring-boot如何区别不同的环境变量呢？
 ---
-# Spring-boot不同环境使用不同配置
 
 spring-boot会在classpath中查找名为`application-{profile}.properties`的配置文件，`application-default.properties`始终加载，如果使用了profile，那么相同配置将会覆盖`application-default.properties`中的值，通过指定`spring.profiles.active`属性可以让spring加载指定的配置文件。
 

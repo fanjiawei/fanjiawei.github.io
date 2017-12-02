@@ -11,8 +11,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="/css/normalize.css" rel="stylesheet" type="text/css">
     <link href="/css/default.css" rel="stylesheet" type="text/css">
-    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/github.css" rel="stylesheet" type="text/css">
     <link href="/css/baidu-cse-default.css" rel="stylesheet" type="text/css">
+    <link href="/css/github-markdown.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@
     </nav>
 </aside>
 <main class="content">
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <article class="post markdown-body" itemscope itemtype="http://schema.org/BlogPosting">
 
     <header class="post-header">
         <h1 class="post-title" itemprop="name headline">终端实用命令</h1>
@@ -57,7 +58,7 @@
 
 <hr />
 <p><code class="highlighter-rouge">pbpaste &gt; ./filename.txt</code>
-粘贴剪贴板的内容到一个文件</p>
+仅mac，粘贴剪贴板的内容到一个文件</p>
 
 <hr />
 <p><code class="highlighter-rouge">python -m SimpleHTTPServer 8000</code>
@@ -97,12 +98,12 @@
 
 <hr />
 <p><code class="highlighter-rouge">ls</code>
-列出目录里的文件和子目录
--h 给人看的文件大小，1024会显示为1K
--lu filename 查看文件的最后访问时间
--lc filename 查看文件状态(权限，用户，用户组等)的最后修改时间
--l filename 查看文件内容的最后修改时间
--a 列出所有文件，包括隐藏文件和<code class="highlighter-rouge">.</code> <code class="highlighter-rouge">..</code>
+列出目录里的文件和子目录 <br />
+-h 给人看的文件大小，1024会显示为1K <br />
+-lu filename 查看文件的最后访问时间 <br />
+-lc filename 查看文件状态(权限，用户，用户组等)的最后修改时间 <br />
+-l filename 查看文件内容的最后修改时间 <br />
+-a 列出所有文件，包括隐藏文件和<code class="highlighter-rouge">.</code> <code class="highlighter-rouge">..</code> <br />
 -lT 使用完整的时间查看最后修改时间</p>
 
 <hr />
@@ -137,24 +138,24 @@ scp复制服务器上文件名称带空格的文件</p>
 
 <hr />
 <p><code class="highlighter-rouge">chmod 754 [file name]</code>
-修改文件的权限,读写执行各用一个数字表示，如下
-r:4,w:2,x:1
+修改文件的权限,读写执行各用一个数字表示，如下 <br />
+r:4,w:2,x:1 <br />
 7(4+2+1)代表可读，可写，可执行,6(4+2)代表可读，可写</p>
 
 <hr />
 <p><code class="highlighter-rouge">chmod [u|g|o|a][+|-|=][r|w|x] [file name]</code>
-chmod的另一种用法,u:所有者,g:用户组,o:其他人,a:全部
-参数可以是下面这样的
-u+rw:给拥有者新增读写权限
-g-w:给用户组删除读取权限
+chmod的另一种用法,u:所有者,g:用户组,o:其他人,a:全部 <br />
+参数可以是下面这样的 <br />
+u+rw:给拥有者新增读写权限 <br />
+g-w:给用户组删除读取权限 <br />
 o=rw:其他人设置为读写权限</p>
 
 <hr />
-<p><code class="highlighter-rouge">touch</code>
-修改文件的最后访问时间和最后修改时间，如果指定了-a则仅修改最后访问时间，如果指定了-m则仅修改最后修改时间
-<code class="highlighter-rouge">-t [[CC]YY]MMDDhhmm[.SS]</code>指定具体的时间
--a 仅修改访问时间
--m 仅修改文件的最后修改时间
+<p><code class="highlighter-rouge">touch</code> <br />
+修改文件的最后访问时间和最后修改时间，如果指定了-a则仅修改最后访问时间，如果指定了-m则仅修改最后修改时间 <br />
+<code class="highlighter-rouge">-t [[CC]YY]MMDDhhmm[.SS]</code>指定具体的时间 <br />
+-a 仅修改访问时间 <br />
+-m 仅修改文件的最后修改时间  <br />
 <code class="highlighter-rouge">-A [-][[hh]mm]SS</code> 在原来的时间基础上加或者减一个时间，<code class="highlighter-rouge">touch -A 10 filename</code>在原基础上加10秒，<code class="highlighter-rouge">touch -A -10 filename</code> 在原基础上减10秒</p>
 
 <hr />
@@ -204,9 +205,67 @@ o=rw:其他人设置为读写权限</p>
             s.parentNode.insertBefore(bdcs, s);
         })();</script>
     </div>
+    <div class="tag-cloud">
+        <h2>标签</h2>
+        
+        
+        <a href="/tags/json/" rel="1">
+            JSON (1)
+        </a>
+        
+        <a href="/tags/centos/" rel="1">
+            centos (1)
+        </a>
+        
+        <a href="/tags/fixmyjs/" rel="1">
+            fixmyjs (1)
+        </a>
+        
+        <a href="/tags/git/" rel="2">
+            git (2)
+        </a>
+        
+        <a href="/tags/git命令/" rel="1">
+            git命令 (1)
+        </a>
+        
+        <a href="/tags/git配置/" rel="1">
+            git配置 (1)
+        </a>
+        
+        <a href="/tags/javascript/" rel="1">
+            javascript (1)
+        </a>
+        
+        <a href="/tags/js/" rel="1">
+            js (1)
+        </a>
+        
+        <a href="/tags/jscs/" rel="1">
+            jscs (1)
+        </a>
+        
+        <a href="/tags/nginx/" rel="1">
+            nginx (1)
+        </a>
+        
+    </div>
 </aside>
 <script src="/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script src="//libs.cdnjs.net/jquery/1.12.4/jquery.min.js"></script>
+<script src="/js/jquery.tagcloud.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+
+    $.fn.tagcloud.defaults = {
+        size: {start: 14, end: 32, unit: "pt"},
+        color: {start: "#31eed8", end: "#c032ff"}
+    };
+
+    $(function() {
+        $(".tag-cloud a").tagcloud();
+    });
+</script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@ title: "冷门知识"
 categories: 其他
 excerpt: 一些比较冷门的知识，也许以后会有用
 ---
-# 冷门知识
+
 ### 1、《中华人民共和国职业分类大典》
 [百度百科的解释](http://baike.baidu.com/view/496586.htm)
 

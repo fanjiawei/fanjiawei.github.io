@@ -2,7 +2,7 @@
 layout: post
 title: git配置文件
 categories: git
-tags: ["git","git配置"]
+tags: git git配置
 excerpt: 如何通过命令操作git的配置文件
 ---
 

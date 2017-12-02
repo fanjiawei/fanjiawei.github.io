@@ -4,8 +4,7 @@ categories: java
 title: 'spring boot 发送邮件步骤'
 excerpt: 本文简述了spring boot 发送邮件的步骤
 ---
-spring boot 发送邮件步骤
-====
+
 >以下内容基于spring boot默认配置
 
 ### step 1

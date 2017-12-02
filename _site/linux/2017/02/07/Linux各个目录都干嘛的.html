@@ -11,8 +11,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="/css/normalize.css" rel="stylesheet" type="text/css">
     <link href="/css/default.css" rel="stylesheet" type="text/css">
-    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/github.css" rel="stylesheet" type="text/css">
     <link href="/css/baidu-cse-default.css" rel="stylesheet" type="text/css">
+    <link href="/css/github-markdown.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@
     </nav>
 </aside>
 <main class="content">
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <article class="post markdown-body" itemscope itemtype="http://schema.org/BlogPosting">
 
     <header class="post-header">
         <h1 class="post-title" itemprop="name headline">Linux的各种目录</h1>
@@ -46,9 +47,7 @@
     </header>
 
     <div class="post-content" itemprop="articleBody">
-        <h1 id="linux各个目录都干嘛的">Linux各个目录都干嘛的？</h1>
-
-<h3 id="opt目录">opt目录</h3>
+        <h3 id="opt目录">opt目录</h3>
 <p>这里主要存放那些可选的程序。你想尝试最新的firefox测试版吗?那就装到/opt目录下吧，这样，当你尝试完，想删掉firefox的时候，你就可 以直接删除它，而不影响系统其他任何设置。安装到/opt目录下的程序，它所有的数据、库文件等等都是放在同个目录下面。</p>
 
 <p>举个例子：刚才装的测试版firefox，就可以装到/opt/firefox_beta目录下，/opt/firefox_beta目录下面就包含了运 行firefox所需要的所有文件、库、数据等等。要删除firefox的时候，你只需删除/opt/firefox_beta目录即可，非常简单。</p>
@@ -75,9 +74,67 @@
             s.parentNode.insertBefore(bdcs, s);
         })();</script>
     </div>
+    <div class="tag-cloud">
+        <h2>标签</h2>
+        
+        
+        <a href="/tags/json/" rel="1">
+            JSON (1)
+        </a>
+        
+        <a href="/tags/centos/" rel="1">
+            centos (1)
+        </a>
+        
+        <a href="/tags/fixmyjs/" rel="1">
+            fixmyjs (1)
+        </a>
+        
+        <a href="/tags/git/" rel="2">
+            git (2)
+        </a>
+        
+        <a href="/tags/git命令/" rel="1">
+            git命令 (1)
+        </a>
+        
+        <a href="/tags/git配置/" rel="1">
+            git配置 (1)
+        </a>
+        
+        <a href="/tags/javascript/" rel="1">
+            javascript (1)
+        </a>
+        
+        <a href="/tags/js/" rel="1">
+            js (1)
+        </a>
+        
+        <a href="/tags/jscs/" rel="1">
+            jscs (1)
+        </a>
+        
+        <a href="/tags/nginx/" rel="1">
+            nginx (1)
+        </a>
+        
+    </div>
 </aside>
 <script src="/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script src="//libs.cdnjs.net/jquery/1.12.4/jquery.min.js"></script>
+<script src="/js/jquery.tagcloud.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+
+    $.fn.tagcloud.defaults = {
+        size: {start: 14, end: 32, unit: "pt"},
+        color: {start: "#31eed8", end: "#c032ff"}
+    };
+
+    $(function() {
+        $(".tag-cloud a").tagcloud();
+    });
+</script>
 </body>
 
 </html>

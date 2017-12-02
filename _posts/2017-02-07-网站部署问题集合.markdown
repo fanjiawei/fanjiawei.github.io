@@ -4,7 +4,7 @@ title: "网站部署问题集合"
 categories: 其他
 excerpt: 平时部署网站遇到的问题
 ---
-# 网站部署问题集合
+
 ## mysql字符集问题
 第一安装上，请马上修改/etc/my.cnf，加入下面代码
 

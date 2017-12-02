@@ -11,8 +11,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="/css/normalize.css" rel="stylesheet" type="text/css">
     <link href="/css/default.css" rel="stylesheet" type="text/css">
-    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/github.css" rel="stylesheet" type="text/css">
     <link href="/css/baidu-cse-default.css" rel="stylesheet" type="text/css">
+    <link href="/css/github-markdown.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@
     </nav>
 </aside>
 <main class="content">
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <article class="post markdown-body" itemscope itemtype="http://schema.org/BlogPosting">
 
     <header class="post-header">
         <h1 class="post-title" itemprop="name headline">恶意揣测</h1>
@@ -46,14 +47,12 @@
     </header>
 
     <div class="post-content" itemprop="articleBody">
-        <h1 id="恶意揣测">恶意揣测</h1>
-
-<p>今天有个面试者，找不到简历。hr悄悄的凑在我耳边说面试者简历找不到。
-然后我一个念头闯入我的脑子，这个人是故意的，不知在哪里看到公司地址，强行来面试。
-后面我就不耐烦了，随便问了两个问题，让他走了。
-当然自始至终都未向他提简历找不到的事情，因为我已经恶意揣测了这人，我认定了这人做了一件很恶的事，然而出于礼貌，这事情却又不方便拿出来讲。
-事后我仔细想了想，觉着完全可以跟他说明白，也需他只是来错了地方，也许是我们工作的疏忽。
-生活中太多类似事件，我们总会带着恶意先揣测别人的意图，误会就此发生。
+        <p>今天有个面试者，找不到简历。hr悄悄的凑在我耳边说面试者简历找不到。  <br />
+然后我一个念头闯入我的脑子，这个人是故意的，不知在哪里看到公司地址，强行来面试。  <br />
+后面我就不耐烦了，随便问了两个问题，让他走了。  <br />
+当然自始至终都未向他提简历找不到的事情，因为我已经恶意揣测了这人，我认定了这人做了一件很恶的事，然而出于礼貌，这事情却又不方便拿出来讲。 <br />
+事后我仔细想了想，觉着完全可以跟他说明白，也需他只是来错了地方，也许是我们工作的疏忽。 <br />
+生活中太多类似事件，我们总会带着恶意先揣测别人的意图，误会就此发生。 <br />
 所以我们应该善意的揣测别人的意图，如果真的无法理解，不妨提出来。</p>
 
 
@@ -75,9 +74,67 @@
             s.parentNode.insertBefore(bdcs, s);
         })();</script>
     </div>
+    <div class="tag-cloud">
+        <h2>标签</h2>
+        
+        
+        <a href="/tags/json/" rel="1">
+            JSON (1)
+        </a>
+        
+        <a href="/tags/centos/" rel="1">
+            centos (1)
+        </a>
+        
+        <a href="/tags/fixmyjs/" rel="1">
+            fixmyjs (1)
+        </a>
+        
+        <a href="/tags/git/" rel="2">
+            git (2)
+        </a>
+        
+        <a href="/tags/git命令/" rel="1">
+            git命令 (1)
+        </a>
+        
+        <a href="/tags/git配置/" rel="1">
+            git配置 (1)
+        </a>
+        
+        <a href="/tags/javascript/" rel="1">
+            javascript (1)
+        </a>
+        
+        <a href="/tags/js/" rel="1">
+            js (1)
+        </a>
+        
+        <a href="/tags/jscs/" rel="1">
+            jscs (1)
+        </a>
+        
+        <a href="/tags/nginx/" rel="1">
+            nginx (1)
+        </a>
+        
+    </div>
 </aside>
 <script src="/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script src="//libs.cdnjs.net/jquery/1.12.4/jquery.min.js"></script>
+<script src="/js/jquery.tagcloud.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+
+    $.fn.tagcloud.defaults = {
+        size: {start: 14, end: 32, unit: "pt"},
+        color: {start: "#31eed8", end: "#c032ff"}
+    };
+
+    $(function() {
+        $(".tag-cloud a").tagcloud();
+    });
+</script>
 </body>
 
 </html>

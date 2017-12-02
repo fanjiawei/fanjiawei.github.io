@@ -2,7 +2,7 @@
 layout: post
 title: js自动添加分号
 categories: javascript
-tags: ["js","fixmyjs"]
+tags: js fixmyjs
 ---
 
 团队协作，有些人没有加分号的习惯，久而久之，会有大量的文件具有此类问题，然后找到一个工具叫fixmyjs，可以自动给js加分号。但是加完别忘检查一下，有些不应该加的他也加了。

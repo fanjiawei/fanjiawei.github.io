@@ -5,7 +5,6 @@ excerpt: nginx如何配置ssl
 categories: nginx
 ---
 
-# nginx配置ssl
 
 先生成证书
 

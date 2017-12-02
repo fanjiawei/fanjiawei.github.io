@@ -4,7 +4,6 @@ title: 'shell学习'
 excerpt: shell学习
 categories: linux
 ---
-# shell 学习
 
 ## 定义变量
 

@@ -11,8 +11,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="/css/normalize.css" rel="stylesheet" type="text/css">
     <link href="/css/default.css" rel="stylesheet" type="text/css">
-    <link href="/css/highlight/ocean.css" rel="stylesheet" type="text/css">
+    <link href="/css/highlight/github.css" rel="stylesheet" type="text/css">
     <link href="/css/baidu-cse-default.css" rel="stylesheet" type="text/css">
+    <link href="/css/github-markdown.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@
     </nav>
 </aside>
 <main class="content">
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <article class="post markdown-body" itemscope itemtype="http://schema.org/BlogPosting">
 
     <header class="post-header">
         <h1 class="post-title" itemprop="name headline">git命令</h1>
@@ -84,9 +85,67 @@
             s.parentNode.insertBefore(bdcs, s);
         })();</script>
     </div>
+    <div class="tag-cloud">
+        <h2>标签</h2>
+        
+        
+        <a href="/tags/json/" rel="1">
+            JSON (1)
+        </a>
+        
+        <a href="/tags/centos/" rel="1">
+            centos (1)
+        </a>
+        
+        <a href="/tags/fixmyjs/" rel="1">
+            fixmyjs (1)
+        </a>
+        
+        <a href="/tags/git/" rel="2">
+            git (2)
+        </a>
+        
+        <a href="/tags/git命令/" rel="1">
+            git命令 (1)
+        </a>
+        
+        <a href="/tags/git配置/" rel="1">
+            git配置 (1)
+        </a>
+        
+        <a href="/tags/javascript/" rel="1">
+            javascript (1)
+        </a>
+        
+        <a href="/tags/js/" rel="1">
+            js (1)
+        </a>
+        
+        <a href="/tags/jscs/" rel="1">
+            jscs (1)
+        </a>
+        
+        <a href="/tags/nginx/" rel="1">
+            nginx (1)
+        </a>
+        
+    </div>
 </aside>
 <script src="/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script src="//libs.cdnjs.net/jquery/1.12.4/jquery.min.js"></script>
+<script src="/js/jquery.tagcloud.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+
+    $.fn.tagcloud.defaults = {
+        size: {start: 14, end: 32, unit: "pt"},
+        color: {start: "#31eed8", end: "#c032ff"}
+    };
+
+    $(function() {
+        $(".tag-cloud a").tagcloud();
+    });
+</script>
 </body>
 
 </html>
