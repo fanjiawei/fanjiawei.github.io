@@ -55,7 +55,7 @@
         <h2>标签</h2>
         {% assign tags = site.tags | sort %}
         {% for tag in tags %}
-        <a href="/{{ site.tag_page_dir }}/{{ tag | first | slugify }}/" rel="{{ tag | last | size }}">
+        <a href="/{{ site.tag_page_dir }}/{{ tag | first | slugify }}.html" rel="{{ tag | last | size }}">
             {{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})
         </a>
         {% endfor %}
